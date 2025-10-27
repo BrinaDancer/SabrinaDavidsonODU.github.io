@@ -1,22 +1,93 @@
 ---
 layout: default
 ---
+<!-- HERO VIDEO SECTION -->
+<section id="hero-video" style="position: relative; width: 100%; height: 100vh; overflow: hidden;">
+  <!-- Video Background -->
+  <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+    <source src="/assets/video/background video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
-{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
-  {% include page__hero.html %}
-{% elsif page.header.video.id and page.header.video.provider %}
-  {% include page__hero_video.html %}
-{% endif %}
+  <!-- Overlay -->
+  <div style="position: absolute; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.3); z-index:2;"></div>
 
-<div id="main" role="main">
-  <article class="splash" itemscope itemtype="https://schema.org/CreativeWork"{% if page.locale %} lang="{{ page.locale }}"{% endif %}>
-    {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-    {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
-    {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
-    {% if page.last_modified_at %}<meta itemprop="dateModified" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
+  <!-- Hero Content -->
+  <div style="position: relative; z-index: 3; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; text-align: center; color: #ff66b2; padding: 0 20px;">
+    <h1 style="font-size: 3rem; margin-bottom: 20px;">Hi, I'm Sabrina Davidson</h1>
+    <p style="font-size: 1.5rem; margin-bottom: 40px;">Computer Enthusist • Technology Specalist</p>
+  </div>
+</section>
 
-    <section class="page__content" itemprop="text">
-      {{ content }}
-    </section>
-  </article>
-</div>
+
+<!-- ABOUT ME SECTION -->
+<section id="about-me" style="display: flex; align-items: center; flex-wrap: wrap; padding: 80px 20px; max-width: 1000px; margin: 0 auto; gap: 50px;">
+  <div class="about-me-image" style="flex-shrink:0;">
+    <img src="/assets/images/profile.jpg" alt="Sabrina Davidson" style="border-radius: 50%; width:  400px; height: 400px; object-fit: cover;">
+  </div>
+  <div class="about-me-text" style="flex:1; text-align:left;">
+    <h2 style="color:#ff66b2;">About Me</h2>
+    <p>
+      Hi, I’m <strong>Sabrina Davidson</strong> — a Master Student at Old Dominion University and lifelong learner.
+      I'm a dual major in Library and Information Science and Computer Science.  My undergraduate degree is in Information Technology with specializations in Web design, multimedia, and cybersecurity. 
+      I'm from a small town in Southwest Virginia called Wytheville. I am currently the Branch manager for 3 of the public libraries in my area.
+    </p>
+    <p>
+      📄 <a href="/assets/pdf/Sabrina Davidson Resume 2025.pdf" target="_blank" style="color:#ff66b2;">My Resume</a>
+    </p>
+  </div>
+</section>
+
+<!-- SKILLS SECTION -->
+<section id="skills" style="padding:80px 20px; background-color:#111; color:#fff;">
+  <h2 style="text-align:center; color:#ff66b2;">My Skills</h2>
+  <div class="skills-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:20px; margin-top:40px;">
+    <div class="skill-card" style="background-color:#222; padding:20px; border-radius:10px; text-align:center; transition:transform 0.3s, background-color 0.3s; cursor:pointer;">
+      <div class="skill-icon" style="font-size:40px;">💻</div>
+      <h3>Web Development</h3>
+      <p>HTML, CSS, JS, Python, Responsive Design</p>
+    </div>
+
+    <div class="skill-card" style="background-color:#222; padding:20px; border-radius:10px; text-align:center; transition:transform 0.3s, background-color 0.3s; cursor:pointer;">
+      <div class="skill-icon" style="font-size:40px;">🔒</div>
+      <h3>Cybersecurity</h3>
+      <p>Network Security, Data Protection, IT Policies</p>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOM CSS -->
+<style>
+/* HERO VIDEO FULL SCREEN */
+.page__hero {
+  height: 100vh;
+  min-height: 600px;
+}
+.page__hero video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* ABOUT ME RESPONSIVE */
+#about-me img {
+  max-width: 100%;
+}
+@media (max-width:768px) {
+  #about-me {
+    flex-direction: column;
+    text-align:center;
+  }
+}
+
+/* SKILLS HOVER EFFECTS */
+.skill-card:hover {
+  transform: translateY(-10px);
+  background-color: #ff66b2;
+  color: #000;
+}
+.skill-card:hover h3,
+.skill-card:hover p {
+  color: #000;
+}
+</style>
